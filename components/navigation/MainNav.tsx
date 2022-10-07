@@ -30,17 +30,17 @@ export default function MainNav() {
       </ul>
       <ul>
         <li>
-          <button>     
+          <button aria-label="search">     
             <Image src="/search.svg" alt="search" width={24} height={24}/>
           </button>
         </li>
         <li>
-          <button>     
+          <button aria-label="account">     
             <Image src="/account.svg" alt="account" width={24} height={24}/>
           </button>
         </li>
         <li>
-          <button>    
+          <button aria-label="cart">    
             <Image src="/cart.svg" alt="cart" width={24} height={24}/>
           </button>
         </li>
