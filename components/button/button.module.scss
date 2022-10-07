@@ -8,6 +8,16 @@ padding: 1rem 2rem;
 font-size: 16px;
 cursor: pointer;
 background: #FFFFFF;
+background-position: center;
+transition: all 0.8s;
+&:hover {
+background: #F1EEE4 radial-gradient(circle, transparent 1%, #F1EEE4 1%) center/15000%;
+}
+&:active {
+background-color: #e8d492;
+background-size: 100%;
+transition: background 0s;
+}
 span {
     margin-right: 1rem;
 }
