@@ -1,0 +1,102 @@
+.container {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    font-family: Cairo sans-serif;
+    @media screen and (max-width: 840px) {
+           border-bottom: 1px solid #000;
+        }  
+
+    ul {
+        display: flex;
+        margin: 0;
+        li {
+            list-style: none;
+            
+            a{
+                margin-left: 1em;
+                font-size: 1rem;
+                font-weight: 500;
+                padding: 1em;
+                text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+                text-underline-offset: 0.4em;
+                transition: text-decoration-color 300ms;
+            } 
+            :hover {
+                    text-decoration-color: rgba(0, 0, 0, 1);
+                }
+            
+            button {
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                background-color: transparent;
+                cursor: pointer;
+                margin-left: 0.6rem;
+                background-position: center;
+                transition: background 0.8s;
+                &:hover {
+                background: #F1EEE4 radial-gradient(circle, transparent 1%, #F1EEE4 1%) center/15000%;
+                }
+                &:active {
+                background-color: #e8d492;
+                background-size: 100%;
+                transition: background 0s;
+                }
+                @media screen and (max-width: 800px) {
+                width: 30px;
+                height: 30px;
+        }  
+            }
+            
+            }
+            
+    }
+}
+
+.links {
+    @media screen and (max-width: 840px) {
+           display: none !important;
+        }  
+    
+    a{
+        font-size: 0.8rem;
+        margin-left: 0.1em;
+    }
+}
+.menu {
+    display: none;
+    @media screen and (max-width: 840px) {
+           display: none
+        }  
+}
+
+.mobile {
+    padding: 0 1rem;
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 9;
+        justify-content: space-between;
+        li{
+            font-size: 0.8rem;
+            a{
+                font-weight: 500;
+                padding: 1em 0;
+                text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+                text-underline-offset: 0.4em;
+                transition: text-decoration-color 300ms;
+            } 
+            :hover {
+                    text-decoration-color: rgba(0, 0, 0, 1);
+                }
+        }
+    }
+    @media screen and (min-width: 840px) {
+           display: none
+        }  
+}

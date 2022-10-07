@@ -41,7 +41,7 @@
     "spaced-comment": "error",
     "quotes": ["error", "double"],
     "no-duplicate-imports": "error",
-    "indent": ["error", 4]
+    "indent": ["error", 2]
   },
   "ignorePatterns": [
         "node_modules",
