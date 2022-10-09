@@ -1,7 +1,7 @@
 import styles from "./button.module.scss"
-export default function Button({text}:{text:string}) {
+export default function Button({text, background}:{text:string, background:string}) {
   return (
-    <button className={styles.button} aria-label="Shop now">
+    <button className={styles.button} aria-label="Shop now" style={{backgroundColor: `${background}`}}>
       <span>{text}</span>
       <div>
         <svg width="45" height="9" viewBox="0 0 45 9" fill="none" xmlns="http://www.w3.org/2000/svg">
