@@ -18,6 +18,12 @@
         }
         
     }
+    @media screen and (max-width: 1020px) {
+           padding: 2rem 3rem;
+        }
+        @media screen and (max-width: 600px) {
+           padding: 2rem
+        }
 }
 .header {
     h1 {
