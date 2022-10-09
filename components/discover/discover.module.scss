@@ -1,10 +1,10 @@
 .container {
-    padding: 2rem;
+    padding: 2rem 6rem;
     .collection {
         display: grid;
         margin: 0;
         padding: 0;
-        grid-template-columns: repeat(4 ,1fr);
+        grid-template-columns: repeat(3 ,1fr);
         gap: 1.6rem;
         &>*{
             height: 600px;
