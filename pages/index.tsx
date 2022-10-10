@@ -3,6 +3,7 @@ import Head from "next/head"
 import Basics from "../components/basics/Basics"
 import Discover from "../components/discover/Discover"
 import Featured from "../components/featured/Featured"
+import Footer from "../components/footer/Footer"
 import Hero from "../components/hero/Hero"
 import Instagram from "../components/instagram/Instagram"
 import MainNav from "../components/navigation/MainNav"
@@ -24,6 +25,7 @@ const Home: NextPage = () => {
       <Featured/>
       <Subscription/>
       <Instagram/>
+      <Footer/>
     </div>
   )
 }
