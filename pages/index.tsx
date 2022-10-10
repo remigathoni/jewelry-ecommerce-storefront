@@ -1,5 +1,7 @@
 import type { NextPage } from "next"
 import Head from "next/head"
+import Discover from "../components/discover/Discover"
+import Hero from "../components/hero/Hero"
 import MainNav from "../components/navigation/MainNav"
 import styles from "../styles/Home.module.css"
 
@@ -12,6 +14,8 @@ const Home: NextPage = () => {
         <link rel='icon' href="/favicon.ico" />
       </Head>
       <MainNav/>
+      <Hero/>
+      <Discover/>
     </div>
   )
 }
