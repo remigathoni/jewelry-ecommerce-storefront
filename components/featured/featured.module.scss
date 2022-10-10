@@ -1,0 +1,87 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    gap: 3rem;
+    padding: 2rem 6rem;
+    margin: 0 auto;
+    @media screen and (max-width: 920px) {
+        //    grid-template-columns: repeat(1 ,1fr);
+        width: 100%;
+        padding: 2rem ;
+        }
+    @media screen and (max-width: 640px) {
+           grid-template-columns: repeat(1 ,1fr);
+        width: 100%;
+        padding: 2rem;
+        gap: 1rem;
+        }
+    
+}
+.image {
+    height: 500px;
+    position: relative;
+    @media screen and (max-width: 640px) {
+    height: 600px;
+        }
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    @media screen and (max-width: 640px) {
+        margin-top: 5%;
+        text-align: center;
+        
+        }
+h1 {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 0px;
+    margin: 0;
+}
+h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 1.4rem 0 0.5rem 0;
+}
+small {
+    margin: 0 0 3rem 0;
+}
+a {
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    margin-top: 1rem;
+}
+}
+
+.button, .buttonoutline {
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+border: none;
+padding: 1rem 2rem;
+font-size: 16px;
+cursor: pointer;
+background: #F1EEE4;
+background-position: center;
+transition: all 0.8s;
+&:hover {
+    opacity: 0.9;
+    background: #f8edc9 radial-gradient(circle, transparent 1%, #f8edc9 1%) center/15000%;
+}
+&:active {
+background-color: #e8d492;
+background-size: 100%;
+transition: background 0s;
+}
+span {
+    margin-right: 1rem;
+}
+}
+.buttonoutline{
+    background-color: #fff;
+    border: 1px solid #F1EEE4;
+    margin-bottom: 1rem;
+}
