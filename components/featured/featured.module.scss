@@ -2,19 +2,17 @@
     display: grid;
     grid-template-columns: repeat(2 ,1fr);
     gap: 3rem;
-    
-    width: 80vw;
     padding: 2rem 6rem;
     margin: 0 auto;
     @media screen and (max-width: 920px) {
         //    grid-template-columns: repeat(1 ,1fr);
         width: 100%;
-        padding: 2rem 3rem;
+        padding: 2rem ;
         }
     @media screen and (max-width: 640px) {
            grid-template-columns: repeat(1 ,1fr);
         width: 100%;
-        padding: 2rem 3rem;
+        padding: 2rem;
         gap: 1rem;
         }
     
@@ -22,6 +20,9 @@
 .image {
     height: 500px;
     position: relative;
+    @media screen and (max-width: 640px) {
+    height: 600px;
+        }
 }
 .content {
     display: flex;
@@ -29,6 +30,8 @@
     margin-top: 20%;
     @media screen and (max-width: 640px) {
         margin-top: 5%;
+        text-align: center;
+        
         }
 h1 {
     font-weight: 400;
@@ -47,6 +50,7 @@ small {
 a {
     font-size: 14px;
     text-decoration: underline;
+    text-underline-offset: 2px;
     margin-top: 1rem;
 }
 }

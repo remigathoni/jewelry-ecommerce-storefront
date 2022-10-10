@@ -5,7 +5,7 @@ export default function Featured() {
   return (
     <section  className={styles.container}>
       <div className={styles.image}>
-        <Image src='/featured.png' alt="" layout="fill" objectFit="cover" objectPosition="center"/>
+        <Image src='/featured.png' alt="" layout="fill" objectFit="contain" objectPosition="center"/>
       </div>
       <div >
         <div className={styles.content}>
