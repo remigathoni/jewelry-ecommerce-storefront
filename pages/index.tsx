@@ -5,6 +5,7 @@ import Discover from "../components/discover/Discover"
 import Featured from "../components/featured/Featured"
 import Hero from "../components/hero/Hero"
 import MainNav from "../components/navigation/MainNav"
+import Subscription from "../components/subscription/Subscription"
 import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
@@ -17,8 +18,10 @@ const Home: NextPage = () => {
       </Head>
       <MainNav/>
       <Hero/>
-      <Discover/><Featured/>
+      <Discover/>
       <Basics/>
+      <Featured/>
+      <Subscription/>
       
     </div>
   )
