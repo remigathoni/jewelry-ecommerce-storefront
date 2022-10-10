@@ -13,10 +13,10 @@ export default function ProductCard({image1, image2, description, link, price}:i
     <li className={styles.card} role="listitem">
       
       <div className={styles.header}>
-        <Image src={image1} alt="" layout="fill" objectFit="cover" objectPosition="top"/>
+        <Image src={image1} alt="" layout="fill" objectFit="cover" objectPosition="center"/>
       </div>
       <div className={styles.header}>        
-        <Image src={image2} alt="" layout="fill" objectFit="cover" objectPosition="top"/>
+        <Image src={image2} alt="" layout="fill" objectFit="cover" objectPosition="center"/>
       </div> 
       
       <div className={styles.content}>
