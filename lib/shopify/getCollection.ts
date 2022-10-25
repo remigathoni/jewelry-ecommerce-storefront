@@ -4,7 +4,7 @@ import { ShopifyData } from "./queryShopify"
 export async function getAllProductsInCollection(collection:string) {
     const query = `
     {
-        collectionByHandle(handle: "bloom") {
+        collectionByHandle(handle: ${collection}) {
           handle
           products(first: 10) {
             edges {
