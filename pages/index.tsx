@@ -8,9 +8,26 @@ import Hero from "../components/hero/Hero"
 import Instagram from "../components/instagram/Instagram"
 import MainNav from "../components/navigation/MainNav"
 import Subscription from "../components/subscription/Subscription"
+import {  getDiscoverCollection, getNewCollection } from "../lib/shopify/getCollection"
 import styles from "../styles/Home.module.css"
 
-const Home: NextPage = () => {
+type images =  {
+  url: string;
+  altText: string;
+}[];
+
+type product = {
+  id: string,
+  title: string
+  handle: string,
+  price: string,
+  images: images
+}
+interface idata {
+  basic: product[],
+  discover: product[]
+}
+const Home: NextPage<idata> = ({basic, discover}) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,8 +37,8 @@ const Home: NextPage = () => {
       </Head>
       <MainNav/>
       <Hero/>
-      <Discover/>
-      <Basics/>
+      <Discover discover={discover}/>
+      <Basics basics={basic}/>
       <Featured/>
       <Subscription/>
       <Instagram/>
@@ -30,4 +47,13 @@ const Home: NextPage = () => {
   )
 }
 
+export async function getStaticProps() {
+const discover = await getDiscoverCollection("bloom")
+const basic = await getNewCollection("basics")
+
+return {
+  props: { discover, basic },
+  revalidate: 60
+}
+}
 export default Home
