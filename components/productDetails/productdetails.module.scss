@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.image {
+  width: 50%;
+  position: relative;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.content {
+  h2 {
+    font-family: "Lora";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  h3 {
+    font-family: "Lora";
+    font-style: "extralight";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+  }
+}
+.cartbtn {
+  margin-top: 1rem;
+  background-color: #b47e4433;
+  color: #b47d44;
+  border: #b47e4433;
+  padding: 0.8rem;
+  cursor: pointer;
+  width: 100%;
+}
+.cartbtn:hover {
+  background-color: rgba(180, 126, 68, 0.092);
+}
+
+.cartbtn:active {
+  background-color: rgba(180, 126, 68, 0.43);
+}
