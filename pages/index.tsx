@@ -8,20 +8,24 @@ import Hero from "../components/hero/Hero"
 import Instagram from "../components/instagram/Instagram"
 import MainNav from "../components/navigation/MainNav"
 import Subscription from "../components/subscription/Subscription"
-import {  getDiscoverCollection, getNewCollection } from "../lib/shopify/getCollection"
+import { getCollection } from "../lib/supabase/products/getProducts"
 import styles from "../styles/Home.module.css"
 
-type images =  {
-  url: string;
-  altText: string;
-}[];
+
 
 type product = {
   id: string,
-  title: string
-  handle: string,
-  price: string,
-  images: images
+    created_at: string,
+    product: string,
+    status: boolean,
+    inventory: bigint,
+    category: string,
+    image: string,
+    description: string,
+    price: number,
+    collection: string,
+    featured: boolean,
+
 }
 interface idata {
   basic: product[],
@@ -48,12 +52,11 @@ const Home: NextPage<idata> = ({basic, discover}) => {
 }
 
 export async function getStaticProps() {
-const discover = await getDiscoverCollection("bloom")
-const basic = await getNewCollection("basics")
-
-return {
-  props: { discover, basic },
-  revalidate: 60
-}
+  const discover = await getCollection("bloom", 3)
+  const basic = await getCollection("basic", 5)
+  return {
+    props: { discover:discover?discover:[], basic: basic?basic:[] },
+    revalidate: 60
+  }
 }
 export default Home

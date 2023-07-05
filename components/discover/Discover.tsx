@@ -1,17 +1,9 @@
-import Button from "../button/Button"
-import ProductCard from "../productCard/ProductCard"
-import styles from "./discover.module.scss"
-type images =  {
-  url: string;
-  altText: string;
-}[];
-type product = {
-  id: string,
-  title: string
-  handle: string,
-  price: string,
-  images: images
-}
+import { product } from "../../lib/types/product.type";
+import getHandle from "../../utils/generateHandle";
+import Button from "../button/Button";
+import ProductCard from "../productCard/ProductCard";
+import styles from "./discover.module.scss";
+
 type discover = product[]
 
 export default function Discover({discover}:{discover: discover}) {
@@ -22,9 +14,9 @@ export default function Discover({discover}:{discover: discover}) {
         <h2>The Bloom Collection</h2>
       </div>
       <ul className={styles.collection} role="list">
-      {discover.map((product, index) => {
+        {discover.map((data, index) => {
           return (
-            <ProductCard key={index} description={product.title} price={product.price} link={`/${product.handle}`} image1={product.images[0].url} image2={product.images[0].url}/>
+            <ProductCard key={index} title ={data.product}  price={(data.price).toString()} link={`${getHandle(data.product)}/?productid=${data.id}`} image={data.image}/>
           )
         })}
       </ul>
