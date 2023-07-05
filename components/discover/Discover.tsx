@@ -16,7 +16,7 @@ export default function Discover({discover}:{discover: discover}) {
       <ul className={styles.collection} role="list">
         {discover.map((data, index) => {
           return (
-            <ProductCard key={index} title ={data.product}  price={(data.price).toString()} link={`${getHandle(data.product)}/?productid=${data.id}`} image={data.image}/>
+            <ProductCard key={index} title ={data.product}  price={(data.price).toString()} link={`/products/${getHandle(data.product)}/?productid=${data.id}`} image={data.image}/>
           )
         })}
       </ul>
