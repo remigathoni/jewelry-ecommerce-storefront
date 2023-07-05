@@ -1,6 +1,6 @@
 import { product } from "../../lib/types/product.type";
 import getHandle from "../../utils/generateHandle";
-import Button from "../button/Button";
+import LinkButton from "../linkButton/LinkButton";
 import ProductCard from "../productCard/ProductCard";
 import styles from "./discover.module.scss";
 
@@ -20,7 +20,7 @@ export default function Discover({discover}:{discover: discover}) {
           )
         })}
       </ul>
-      <Button text="SHOP BLOOM" background="#F1EEE4"/>
+      <LinkButton link={`collection/${discover[0].collection}`} text="SHOP BLOOM" background="#F1EEE4"/>
     </section>
   )
 }

@@ -1,6 +1,6 @@
 import { product } from "../../lib/types/product.type";
 import getHandle from "../../utils/generateHandle";
-import Button from "../button/Button";
+import LinkButton from "../linkButton/LinkButton";
 import ProductCard from "../productCard/ProductCard";
 import styles from "./basics.module.scss";
 
@@ -21,7 +21,7 @@ export default function Basics({basics}:{basics: basics}) {
         })}
       </ul>
 
-      <Button text="SHOP BASICS" background="#F1EEE4"/>
+      <LinkButton link={`collection/${basics[0].collection}`} text={`SHOP ${(basics[0].collection).toUpperCase()}`} background="#F1EEE4"/>
     </section>
   )
 }
