@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { useCartContext } from "../../context/cartContext";
 import supabase from "../../lib/supabase/supabase";
 import styles from "./checkout.module.scss";
@@ -7,7 +8,21 @@ import styles from "./checkout.module.scss";
 function Checkout() {
   const [shippingInfo, setShippingInfo] = useState("")
   const { cartItems } = useCartContext();
-
+  const [user, setuser] = useState(null)
+  const router = useRouter()
+  useEffect( () => {
+    async function getUser() {
+      
+      const {data, error} = await supabase.auth.getUser()
+      console.log(data)
+      if(!data.user) {
+        router.push("/auth/login")
+      }
+      setuser(data.user)
+    }
+    void getUser()
+  }, [router])
+  
   const checkoutHandler = async () => {
     console.log("HERE")
     if (!shippingInfo) {
@@ -15,15 +30,14 @@ function Checkout() {
       return
     }
     if(!cartItems) {
-      console.log("Add items")
       return
     }
     // move to stripe checkoutpage
     try {
       
-      const {data:{user}, error} = await supabase.auth.getUser() 
+
       const { data } = await axios.post(
-        "http://localhost:3000/api/orders/checkout",
+        `${process.env.API_URL}/api/orders/checkout`,
         {
           items: cartItems,
           shippingInfo,
@@ -31,8 +45,7 @@ function Checkout() {
         }
       );
 
-      console.log(data)
-      // if(data.url) window.location.href = data.url;
+      if(data.url) window.location.href = data.url;
     } catch (error:any) {
       console.log(error.response);
     }
