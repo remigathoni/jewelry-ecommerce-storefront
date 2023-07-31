@@ -39,7 +39,7 @@ export default function ProductDetails({ product }:{product:product}) {
     //     setCheckout(true);
     //   }
   }
-  console.log(cartItems)
+  console.log(product.description)
   return (
     <div className={styles.wrapper}>
       {checkout ? (
@@ -62,6 +62,7 @@ export default function ProductDetails({ product }:{product:product}) {
         <div className={styles.content}>
           <span>
             <h2>{product.product}</h2>
+            <p>{product.description}</p>
             <h3>Ksh. {product.price}</h3>
           </span>
          
