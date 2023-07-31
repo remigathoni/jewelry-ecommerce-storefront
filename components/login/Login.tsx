@@ -46,9 +46,9 @@ export default function Login() {
       })
       seterror(error?.message)
       
-      // if(data.session) {
-      //   router.back()
-      // }
+      if(data.session) {
+        router.back()
+      }
     } catch (error) {
       console.log(error)
     }
