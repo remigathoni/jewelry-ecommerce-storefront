@@ -21,11 +21,11 @@ export default function MainNav() {
               <a>EARRINGS</a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/">
               <a>JEWELRY CARE</a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/">
               <a>ABOUT</a>
@@ -33,7 +33,7 @@ export default function MainNav() {
           </li>
         </ul>
         <ul>
-          <li>
+          {/* <li>
             <button aria-label="search">     
               <Image src="/search.svg" alt="search" width={24} height={24}/>
             </button>
@@ -42,7 +42,7 @@ export default function MainNav() {
             <button aria-label="account">     
               <Image src="/account.svg" alt="account" width={24} height={24}/>
             </button>
-          </li>
+          </li> */}
           <li>
             <Link href="/cart">
               <button aria-label="cart" className={styles.cartbtn}>    
