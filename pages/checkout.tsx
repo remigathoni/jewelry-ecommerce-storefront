@@ -1,13 +1,15 @@
-import Cart from "../components/Cart/Cart"
+import Checkout from "../components/checkout/checkout"
 import Footer from "../components/footer/Footer"
 import MainNav from "../components/navigation/MainNav"
 
-export default function cart() {
+function checkout() {
   return (
     <div>
       <MainNav/>
-      <Cart/>
+      <Checkout/>
       <Footer/>
     </div>
   )
 }
+
+export default checkout

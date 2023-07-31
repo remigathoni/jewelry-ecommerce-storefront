@@ -36,8 +36,10 @@ function Cart() {
         
       </div>
 
-      <button className={styles.checkoutbtn}>{`GO TO CHECKOUT - TOTAL Ksh 
+      <Link href="/checkout">
+        <button className={styles.checkoutbtn}>{`GO TO CHECKOUT - TOTAL Ksh 
         ${getTotal()}`}</button>
+      </Link>
     </div>
   )
 }

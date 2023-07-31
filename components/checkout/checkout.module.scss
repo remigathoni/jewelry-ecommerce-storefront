@@ -1,0 +1,52 @@
+.container {
+  padding: 2rem 6rem;
+}
+
+.header {
+  margin-bottom: 1.2rem;
+  h1 {
+    font-family: "Cairo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+  }
+}
+
+.shippingsection {
+  width: 70vw;
+}
+.inputSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputRow {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 49%;
+  label {
+    margin-bottom: 8px;
+  }
+  input {
+    height: 48px;
+    padding: 10px;
+  }
+}
+
+.inputRowFull {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+  label {
+    margin-bottom: 8px;
+  }
+  input {
+    height: 48px;
+    padding: 10px;
+  }
+}
