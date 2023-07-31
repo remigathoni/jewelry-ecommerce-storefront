@@ -3,6 +3,7 @@ import Footer from "../components/footer/Footer"
 import MainNav from "../components/navigation/MainNav"
 
 function checkout() {
+
   return (
     <div>
       <MainNav/>

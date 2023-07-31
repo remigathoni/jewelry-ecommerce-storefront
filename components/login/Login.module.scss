@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 40vw;
+  margin: 4rem auto;
+  padding: 1rem;
+  border: 1px solid #eee;
+
+  @media screen and (max-width: 920px) {
+    max-width: 60vw;
+  }
+  @media screen and (max-width: 600px) {
+    max-width: 80vw;
+  }
+
+  input {
+    height: 48px;
+    padding: 10px;
+    margin-bottom: 1rem;
+  }
+  button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 16px;
+    cursor: pointer;
+    background: #eee;
+    background-position: center;
+    transition: all 0.8s;
+
+    &:hover {
+      opacity: 0.9;
+      background: #f8edc9 radial-gradient(circle, transparent 1%, #f8edc9 1%) center/15000%;
+    }
+    &:active {
+      background-color: #e8d492;
+      background-size: 100%;
+      transition: background 0s;
+    }
+    span {
+      margin-right: 1rem;
+    }
+  }
+}
