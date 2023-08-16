@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCartContext } from "../../context/cartContext";
 import { product } from "../../lib/types/product.type";
-import styles from "./Productdetails.module.scss";
+import styles from "./productdetails.module.scss";
 
 export default function ProductDetails({ product }:{product:product}) {
   const [checkout, setCheckout] = useState(false);
