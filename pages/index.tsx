@@ -1,5 +1,6 @@
 import type { NextPage } from "next"
 import Head from "next/head"
+
 import Basics from "../components/basics/Basics"
 import Discover from "../components/discover/Discover"
 import Featured from "../components/featured/Featured"
@@ -46,6 +47,7 @@ const Home: NextPage<idata> = ({basic, discover}) => {
       <Featured/>
       <Subscription/>
       <Instagram/>
+
       <Footer/>
     </div>
   )

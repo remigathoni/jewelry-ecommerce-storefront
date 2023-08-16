@@ -11,7 +11,7 @@ export default function Discover({discover}:{discover: discover}) {
     <section className={styles.container}>
       <div className={styles.header}>
         <h1>DISCOVER</h1>
-        <h2>The Bloom Collection</h2>
+        <h2 id="shop">The Bloom Collection</h2>
       </div>
       <ul className={styles.collection} role="list">
         {discover.map((data, index) => {

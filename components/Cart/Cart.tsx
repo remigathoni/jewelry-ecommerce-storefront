@@ -31,6 +31,7 @@ function Cart() {
             </div>
             <div>Ksh. {item.price}</div>
             <button onClick={() => removeFromCart(item)}>Remove</button>
+
           </div>)
         })}
         

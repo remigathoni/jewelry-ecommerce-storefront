@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { product } from "../../../lib/types/product.type";
@@ -31,13 +34,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       });
 
       const shippingInfo = body?.shippingInfo;
-
+      const user = body?.user
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         success_url: `${process.env.API_URL}/orders?order_success=true`,
         cancel_url: `${process.env.API_URL}`,
-        // customer_email: req?.user?.email,
-        // client_reference_id: req?.user?._id,
+        customer_email: user.email,
+        client_reference_id: user.id,
         mode: "payment",
         metadata: { shippingInfo },
         shipping_options: [

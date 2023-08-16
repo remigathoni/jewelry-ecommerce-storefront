@@ -1,72 +1,77 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import axios from "axios";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { useCartContext } from "../../context/cartContext";
-import LinkButton from "../linkButton/LinkButton";
+import supabase from "../../lib/supabase/supabase";
 import styles from "./checkout.module.scss";
 
 function Checkout() {
   const [shippingInfo, setShippingInfo] = useState("")
   const { cartItems } = useCartContext();
-
+  const [user, setuser] = useState<any>(null)
+  const router = useRouter()
+  useEffect( () => {
+    async function getUser() {
+      
+      const {data, error} = await supabase.auth.getUser()
+      console.log(data)
+      if(!data.user) {
+        await router.push("/auth/login")
+      }
+      setuser(data.user)
+    }
+    void getUser()
+  }, [router])
+  
   const checkoutHandler = async () => {
-    console.log("HERE")
     if (!shippingInfo) {
-      console.log("Please select your shipping address");
+      return
+    }
+    if(!cartItems) {
       return
     }
     // move to stripe checkoutpage
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/orders/checkout",
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        `${process.env.API_URL}/api/orders/checkout`,
         {
           items: cartItems,
           shippingInfo,
+          user
         }
       );
 
-      console.log(data)
       if(data.url) window.location.href = data.url;
     } catch (error:any) {
       console.log(error.response);
     }
   };
+
+  const handleSubmit = async (event:any) => {
+    event.preventDefault()
+    await checkoutHandler()
+  }
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>CHECKOUT</h1>
         <small>Kindly fill in your personal information and complete the payment.</small>
       </div>
-      <section className={styles.shippingsection}>
-        {/* <div className={styles.inputSection}>
-          <div className={styles.inputRow}>
-            <label htmlFor="firstname">First Name</label>
-            <input type="text" name="first name" id="firstname"/>
+      
+      <form onSubmit={handleSubmit}>
+        <section className={styles.shippingsection}>
+          <div className={styles.inputRowFull}>
+            <label htmlFor="deliveryaddress">Delivery address</label>
+            <input required type="text" name="delivery address" id="deliveryaddress" value={shippingInfo} onChange={(e) => setShippingInfo(e.target.value)}/>
           </div>
-          <div className={styles.inputRow}>
-            <label htmlFor="lastname">Last Name</label>
-            <input type="text" name="last name" id="lastname"/>
-          </div>
-        </div>
 
-        <div className={styles.inputSection}>
-          <div className={styles.inputRow}>
-            <label htmlFor="phonenumber">Phone number</label>
-            <input type="tel" name="phone number" id="phone number"/>
-          </div>
-          <div className={styles.inputRow}>
-            <label htmlFor="lastname">Email</label>
-            <input type="text" name="last name" id="lastname"/>
-          </div>
-        </div> */}
+        </section>
+        <button type="submit" className={styles.button}>Proceed to Payment</button>
 
-        <div className={styles.inputRowFull}>
-          <label htmlFor="deliveryaddress">Delivery address</label>
-          <input type="text" name="delivery address" id="deliveryaddress" value={shippingInfo} onChange={(e) => setShippingInfo(e.target.value)}/>
-        </div>
-
-      </section>
-      <button onClick={checkoutHandler}>Go to checkout </button>
-      <LinkButton text={"Proceed to payment"} background={"#eee"} link={"/"} />
+      </form>
+      
     </div>
   )
 }
