@@ -17,7 +17,7 @@ export default function Login() {
       
       const {data, error} = await supabase.auth.getUser()
       if(data.user) {
-        router.push("/")
+        await router.push("/")
       }
     }
     void getUser()
@@ -31,7 +31,9 @@ export default function Login() {
         email,
         password
       })
-      seterror(error?.message)
+      if(error) {
+        seterror(error.message)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -44,7 +46,9 @@ export default function Login() {
         email,
         password,
       })
-      seterror(error?.message)
+      if(error) {
+        seterror(error.message)
+      }
       
       if(data.session) {
         router.back()

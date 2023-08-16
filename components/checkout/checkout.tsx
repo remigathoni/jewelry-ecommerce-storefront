@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -8,7 +9,7 @@ import styles from "./checkout.module.scss";
 function Checkout() {
   const [shippingInfo, setShippingInfo] = useState("")
   const { cartItems } = useCartContext();
-  const [user, setuser] = useState(null)
+  const [user, setuser] = useState<any>(null)
   const router = useRouter()
   useEffect( () => {
     async function getUser() {
@@ -16,7 +17,7 @@ function Checkout() {
       const {data, error} = await supabase.auth.getUser()
       console.log(data)
       if(!data.user) {
-        router.push("/auth/login")
+        await router.push("/auth/login")
       }
       setuser(data.user)
     }
@@ -24,9 +25,7 @@ function Checkout() {
   }, [router])
   
   const checkoutHandler = async () => {
-    console.log("HERE")
     if (!shippingInfo) {
-      console.log("Please select your shipping address");
       return
     }
     if(!cartItems) {
@@ -34,9 +33,8 @@ function Checkout() {
     }
     // move to stripe checkoutpage
     try {
-      
-
       const { data } = await axios.post(
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         `${process.env.API_URL}/api/orders/checkout`,
         {
           items: cartItems,
@@ -61,6 +59,7 @@ function Checkout() {
         <h1>CHECKOUT</h1>
         <small>Kindly fill in your personal information and complete the payment.</small>
       </div>
+      
       <form onSubmit={handleSubmit}>
         <section className={styles.shippingsection}>
           <div className={styles.inputRowFull}>

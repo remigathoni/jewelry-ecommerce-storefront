@@ -2,7 +2,7 @@ import MainNav from "../../components/navigation/MainNav";
 import ProductDetails from "../../components/productDetails/ProductDetails";
 import { getProduct } from "../../lib/supabase/products/getProducts";
 import { product } from "../../lib/types/product.type";
-export default function Product({ product }:{product:product}) {
+export default function Product({ product }:{product:product[]}) {
   return (
     <>
       <MainNav />

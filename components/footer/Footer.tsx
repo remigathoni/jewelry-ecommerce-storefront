@@ -26,14 +26,9 @@ export default function Footer() {
           </li>
         </ul>
         <div>
-          <a href="/">
-            <Image src="/facebook.svg" alt="" width={20} height={20}/>
-          </a>    
-          <a href="/"> 
-            <Image src="/twitter.svg" alt="" width={20} height={20}/></a>   
-          <a href="/"> 
-            <Image src="/instagram.svg" alt="" width={20} height={20}/>
-          </a>   
+          <Image src="/facebook.svg" alt="" width={20} height={20}/>
+          <Image src="/twitter.svg" alt="" width={20} height={20}/>
+          <Image src="/instagram.svg" alt="" width={20} height={20}/>
         </div>
       </footer>
     </>

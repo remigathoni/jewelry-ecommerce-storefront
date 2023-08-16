@@ -1,4 +1,5 @@
-import Button from "../button/Button"
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+import LinkButton from "../linkButton/LinkButton"
 import styles from "./hero.module.scss"
 
 export default function Hero() {
@@ -8,7 +9,7 @@ export default function Hero() {
         <div className={styles.content}>
           <h1>Best of statement</h1>
           <h1>jewelery.</h1>
-          <Button text="SHOP NOW" background="white"/>
+          <LinkButton text="SHOP NOW" background="#fff" link={"/#shop"}></LinkButton>
         </div>
       </section>
       <section className={styles.right}>

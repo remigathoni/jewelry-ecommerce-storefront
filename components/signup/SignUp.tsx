@@ -21,8 +21,9 @@ export default function SignUp() {
         email,
         password
       })
-      console.log(data)
-      seterror(error?.message)
+      if(error) {
+        seterror(error.message)
+      }
     } catch (error) {
       console.log(error)
     }
