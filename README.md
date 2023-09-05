@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# E-Commerce Website with Supabase, Next.js, and Stripe
 
-First, run the development server:
+![E-Commerce Website Screenshot](https://cfgeifcecsxiephkyogp.supabase.co/storage/v1/object/sign/Images/ahlia-screenshot.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvYWhsaWEtc2NyZWVuc2hvdC5wbmciLCJpYXQiOjE2OTM5MTM3MDEsImV4cCI6MTcyNTQ0OTcwMX0.-nYpjej8GTrnGq_tSQOu1WCZBQfLRGegk1_JESAwA4w&t=2023-09-05T11%3A35%3A01.304Z)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+[See the live demo](https://ahlia-jewelry.vercel.app/)
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+An e-commerce website built with Supabase, Next.js, and Stripe. This project enables you to create a fully functional online store with features like product listing, shopping cart, user authentication, and secure payment processing.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- **Product Catalog:** Display a catalog of products with details such as name, description, price, and images.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- **User Authentication:** Allow users to sign up, log in, and manage their profiles.
 
-## Learn More
+- **Shopping Cart:** Enable users to add and remove items from their shopping carts.
 
-To learn more about Next.js, take a look at the following resources:
+- **Checkout and Payment:** Use Stripe for secure payment processing, allowing customers to complete their purchases with ease.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Still a WIP
