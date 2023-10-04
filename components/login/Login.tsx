@@ -2,42 +2,20 @@
 "use client"
 
 import Link from "next/link"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
-import supabase from "../../lib/supabase/supabase"
+// import supabase from "../../lib/supabase/supabase"
 import styles from "./Login.module.scss"
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+
+  const supabase = createClientComponentClient();
 
 export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, seterror] = useState("")
   const router = useRouter()
-  useEffect( () => {
-    async function getUser() {
-      
-      const {data, error} = await supabase.auth.getUser()
-      if(data.user) {
-        await router.push("/")
-      }
-    }
-    void getUser()
-  }, [router])
   
-
-  const handleSignUp = async () => {
-    if(!email || !password) return
-    try {
-      const {data, error} = await supabase.auth.signUp({
-        email,
-        password
-      })
-      if(error) {
-        seterror(error.message)
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const handleSignIn = async () => {
     if(!email || !password) return
@@ -46,22 +24,18 @@ export default function Login() {
         email,
         password,
       })
+      console.log(data)
       if(error) {
         seterror(error.message)
       }
-      
-      if(data.session) {
-        router.back()
-      }
+      // if(data.session) {
+      //   router.back()
+      // }
     } catch (error) {
       console.log(error)
     }
   }
 
-  const handleSignOut = async () => {
-    await supabase.auth.signOut()
-    router.reload()
-  }
   const handleSubmit = async (event:any) => {
     event.preventDefault();
     if(!email || !password) return
@@ -87,3 +61,4 @@ export default function Login() {
     </form>
   )
 }
+

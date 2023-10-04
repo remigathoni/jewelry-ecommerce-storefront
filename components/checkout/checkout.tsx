@@ -1,28 +1,15 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
+"use client"
 import axios from "axios";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import {  useState } from "react";
 import { useCartContext } from "../../context/cartContext";
-import supabase from "../../lib/supabase/supabase";
 import styles from "./checkout.module.scss";
 
 function Checkout() {
   const [shippingInfo, setShippingInfo] = useState("")
   const { cartItems } = useCartContext();
   const [user, setuser] = useState<any>(null)
-  const router = useRouter()
-  useEffect( () => {
-    async function getUser() {
-      
-      const {data, error} = await supabase.auth.getUser()
-      console.log(data)
-      if(!data.user) {
-        await router.push("/auth/login")
-      }
-      setuser(data.user)
-    }
-    void getUser()
-  }, [router])
   
   const checkoutHandler = async () => {
     if (!shippingInfo) {
@@ -52,6 +39,16 @@ function Checkout() {
   const handleSubmit = async (event:any) => {
     event.preventDefault()
     await checkoutHandler()
+  }
+
+  if(!cartItems) {
+    return (
+      <div className={styles.container}>
+         <div className={styles.header}>
+         <small>Add items to your cart to checkout.</small>
+      </div>
+      </div>
+    )
   }
   return (
     <div className={styles.container}>
