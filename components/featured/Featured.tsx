@@ -20,8 +20,8 @@ export default function Featured() {
           <button className={styles.button} aria-label="Add to cart">
             CHECKOUT        
           </button>
-          <Link href="/">
-            <a className={styles.link}>View product details</a>
+          <Link href="/" className={styles.link}>
+            View product details
           </Link>
         </div>
       </div>

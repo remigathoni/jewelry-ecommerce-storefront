@@ -20,8 +20,8 @@ export default function ProductCard({title, image, link, price}:iProps) {
       
       <div className={styles.content}>
         <small>
-          <Link href={link}>
-            <a className={styles.action}>{title}</a>
+          <Link href={link} className={styles.action}>
+            {title}
           </Link>
         </small>
         <small>Ksh. {price}</small>

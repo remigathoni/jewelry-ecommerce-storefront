@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { useCartContext } from "../../context/cartContext";
@@ -13,22 +14,22 @@ export default function MainNav() {
         <ul className={styles.links}>
           <li>
             <Link href="/">
-              <a>NECKLACES</a>
+              NECKLACES
             </Link>
           </li>
           <li>
             <Link href="/">
-              <a>EARRINGS</a>
+              EARRINGS
             </Link>
           </li>
           {/* <li>
             <Link href="/">
-              <a>JEWELRY CARE</a>
+             JEWELRY CARE
             </Link>
           </li> */}
           <li>
             <Link href="/">
-              <a>ABOUT</a>
+              ABOUT
             </Link>
           </li>
         </ul>
@@ -64,22 +65,22 @@ export default function MainNav() {
         <ul >
           <li>
             <Link href="/">
-              <a>NECKLACES</a>
+             NECKLACES
             </Link>
           </li>
           <li>
             <Link href="/">
-              <a>EARRINGS</a>
+             EARRINGS
             </Link>
           </li>
           <li>
             <Link href="/">
-              <a>JEWELRY CARE</a>
+             JEWELRY CARE
             </Link>
           </li>
           <li>
             <Link href="/">
-              <a>ABOUT</a>
+             ABOUT
             </Link>
           </li>
         </ul>

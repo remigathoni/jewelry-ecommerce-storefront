@@ -28,11 +28,10 @@ type product = {
     featured: boolean,
 
 }
-interface idata {
-  basic: product[],
-  discover: product[]
-}
-const Home: NextPage<idata> = ({basic, discover}) => {
+
+const Home = async () => {
+  const discover = await getCollection("bloom", 3)
+  const basic = await getCollection("basic", 5)
   return (
     <div className={styles.container}>
       <Head>
@@ -53,12 +52,12 @@ const Home: NextPage<idata> = ({basic, discover}) => {
   )
 }
 
-export async function getStaticProps() {
-  const discover = await getCollection("bloom", 3)
-  const basic = await getCollection("basic", 5)
-  return {
-    props: { discover:discover?discover:[], basic: basic?basic:[] },
-    revalidate: 60
-  }
-}
+// export async function getStaticProps() {
+//   const discover = await getCollection("bloom", 3)
+//   const basic = await getCollection("basic", 5)
+//   return {
+//     props: { discover:discover?discover:[], basic: basic?basic:[] },
+//     revalidate: 60
+//   }
+// }
 export default Home

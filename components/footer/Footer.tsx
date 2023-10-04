@@ -11,17 +11,17 @@ export default function Footer() {
         <ul role="list">
           <li>
             <Link href="/">
-              <a>Help</a>
+              Help
             </Link>
           </li>
           <li>
             <Link href="/">
-              <a>Contact Us</a>
+              Contact Us
             </Link>
           </li>
           <li>
             <Link href="/">
-              <a>Privacy & Terms</a>
+              Privacy & Terms
             </Link>
           </li>
         </ul>

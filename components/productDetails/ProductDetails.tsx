@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -6,6 +7,7 @@ import { product } from "../../lib/types/product.type";
 import styles from "./productdetails.module.scss";
 
 export default function ProductDetails({ product }:{product:product}) {
+  console.log(product)
   const [checkout, setCheckout] = useState(false);
   const [exists, setExists] = useState(false);
   // const cartItems  = [{id: "", name: "", price: ""}] // what to store temporarily
